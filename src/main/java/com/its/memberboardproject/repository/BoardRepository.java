@@ -13,7 +13,7 @@ public interface BoardRepository extends JpaRepository<BoardEntity, Long> {
     @Query(value = "update BoardEntity b set b.boardHits = b.boardHits + 1 where b.id= :id")
     void boardHits(Long id);
 
-    List<BoardEntity> findByBoardTitleContainingOrBoardWriterContaining(String q1, String q2);
+    List<BoardEntity> findByBoardTitleContainingOrBoardWriterContainingOrderByBoardHits(String q1, String q2);
 
     Optional<BoardEntity> findById(Long id);
 }

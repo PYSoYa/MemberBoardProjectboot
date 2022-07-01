@@ -101,7 +101,8 @@ public class BoardService {
     }
 
     public List<BoardDTO> search(String q) {
-        List<BoardEntity> boardEntityList = boardRepository.findByBoardTitleContainingOrBoardWriterContaining(q, q);
+        List<BoardEntity> boardEntityList =
+                boardRepository.findByBoardTitleContainingOrBoardWriterContainingOrderByBoardHits(q, q);
         List<BoardDTO> boardDTOList = new ArrayList<>();
         for(BoardEntity boardEntity: boardEntityList){
             boardDTOList.add(BoardDTO.toFind(boardEntity));

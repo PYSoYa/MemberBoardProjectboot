@@ -6,10 +6,7 @@ import com.its.memberboardproject.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +21,12 @@ public class CommentController {
         System.out.println("commentDTO = " + commentDTO);
         commentService.save(commentDTO);
         return "redirect:/board/"+commentDTO.getBoardNumber();
+    }
+    @GetMapping("/delete/{id}/{id1}")
+    public String delete(@PathVariable("id") Long id,
+                         @PathVariable("id1") Long id1){
+        commentService.delete(id);
+        return "redirect:/board/"+ id1;
     }
 //    @GetMapping("/findAll")
 //    public String findAll(Model model){

@@ -30,8 +30,12 @@
 <div id="passCheck">
 
 </div>
+<a th:onclick="bye()">회원탈퇴</a>
 </body>
 <script>
+    const bye = () => {
+
+    }
     const memberDelete = (id) => {
         location.href = "/member/delete/"+id;
     }

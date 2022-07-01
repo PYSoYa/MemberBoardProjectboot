@@ -53,7 +53,7 @@ public class BoardDTO {
         boardDTO.setBoardTitle(boardEntity.getBoardTitle());
         boardDTO.setBoardWriter(boardEntity.getBoardWriter());
         boardDTO.setBoardContents(boardEntity.getBoardContents());
-        boardDTO.setBoardHits(0);
+        boardDTO.setBoardHits(boardEntity.getBoardHits());
         boardDTO.setBoardFileName(boardEntity.getBoardFileName());
         return boardDTO;
     }

@@ -58,10 +58,16 @@
         <td th:text="${comment.commentWriter}"></td>
         <td th:text="${comment.commentContents}"></td>
         <td th:text="*{#temporals.format(comment.createdDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        <td th:if="${session.loginEmail == comment.commentWriter}">
+            <a th:onclick="commentDelete([[${comment.id}]],[[${board.id}]])">삭제</a>
+        </td>
     </tr>
 </table>
 </body>
 <script>
+    const commentDelete = (id,id1) => {
+        location.href = "/comment/delete/"+id+"/"+id1;
+    }
 
     const boardModify = (id) => {
         location.href = "/board/update-form/" + id;
